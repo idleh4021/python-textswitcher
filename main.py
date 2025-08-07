@@ -101,7 +101,7 @@ if __name__ == "__main__":
     print('치환할 문자열을 입력해주세요 (예시: 코끼리 -> 냉장고 치환 : 코끼리 냉장고) \n치환할 문자가 더이상 없으면 엔터를 입력하세요 ')
     while True:
         print('치환 문자:',end='',flush=True)
-        s = sys.stdin.readline().strip()#'치환할 문자열을 입력해주세요 (예시: 코끼리 -> 냉장고 치환 : 코끼리 냉장고) 치환할 문자가 더이상 없으면 엔터를 입력하세요 :  ')
+        s = sys.stdin.readline().strip()
         print(f's={s}')
         if s=='':break
         else:
@@ -123,5 +123,11 @@ if __name__ == "__main__":
         print_ppt_text_structure(prs)
         replace_text_across_runs_by_dict(prs,switch_words)
         #replace_text(prs,old_text_to_replace,new_text_to_replace)
-        prs.save(output_ppt_path)
+        try:
+            prs.save(output_ppt_path)
+            print('저장이 완료되었습니다.')
+            os.startfile(output_folder)
+        except Exception as e:
+            print('저장에 실패했습니다.파일이 열려있는지 확인하세요')
+        
         #replace_text_in_ppt(input_ppt_path, output_ppt_path, old_text_to_replace, new_text_to_replace)
