@@ -76,7 +76,7 @@ def replace_text_across_runs(prs, old_text, new_text):
                     for run in paragraph.runs:
                         runs.append(run)
                         full_text += run.text
-                print(f'일반텍스트(bool, old,new):in {old_text in full_text} , {old_text}, {full_text}')
+                #print(f'일반텍스트(bool, old,new):in {old_text in full_text} , {old_text}, {full_text}')
                 if old_text in full_text:
                     
                     full_text = full_text.replace(old_text, new_text)
